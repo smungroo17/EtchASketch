@@ -1,6 +1,7 @@
 html, body {
     background-color: black;
 }
+
 .title {
     position: absolute;
     left: 40%;
@@ -49,17 +50,11 @@ input[type=range]::-webkit-slider-thumb {
     top: 32%;
     outline: gray 20px solid;
     outline-color: rgba(224, 28, 93, 0.3);
+    display: grid;
+    grid-template-columns: repeat(var(--columns-row), 1fr);
+    grid-template-rows: repeat(var(--columns-row), 1fr);
 }
+
 .grid {
-    background-color: green;
-    height: 10px;
-    width: 10px;
-    border-width: 1px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    display: grid;
-    grid: repeat(3, 10vw);
-}
-.row {
-    display: grid;
-    grid: repeat(1, 10px) / auto-flow;
 }
