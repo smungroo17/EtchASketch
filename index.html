@@ -12,15 +12,20 @@
     <p id="textInput" class="gridSize"></p>
     <div id="myCanvas" width="500" height="500" class="canvas">
     </div>
+    <div class="tools">
+      <input type="color" id="colorpicker" value="#0000ff" class="picker" placeholder="Color" oninput="setColor(this.value)">
+      <button class="clear" id="clear">clear</button>
+    </div>
     <script>
-
+        var container = document.getElementById('myCanvas');
+        var sep = 1;
+        var color = "#0000ff";
         function updateTextInput(val) {
           document.getElementById('textInput').innerHTML="Grid size: " + val + "x" + val; 
         }
         function drawGrid(val){
-          var container = document.getElementById('myCanvas');
           container.innerHTML = '';
-
+          sep = val;
           let x = val * val;
           document.documentElement.style.setProperty("--columns-row", val);
 
@@ -28,11 +33,24 @@
             var div = document.createElement("div");
             div.classList.add("grid");
             div.addEventListener("mouseenter", function(){
-              this.style.backgroundColor = "red";
+              this.style.backgroundColor = color;
             })
             container.appendChild(div);
           }
-          
+        }
+        document.getElementById('clear').addEventListener("click", function(){
+          container.innerHTML = '';
+          drawGrid(sep);
+        });
+        function setColor(val){
+          color = val;
+          var children = container.children;
+          for(var i=0; i<children.length; i++){
+            var child = children[i];
+            child.addEventListener("mouseenter", function(){
+              this.style.backgroundColor = val;
+            })
+          }
         }
     </script>
 </body>

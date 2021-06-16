@@ -54,7 +54,54 @@ input[type=range]::-webkit-slider-thumb {
     grid-template-columns: repeat(var(--columns-row), 1fr);
     grid-template-rows: repeat(var(--columns-row), 1fr);
 }
-
 .grid {
     border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.tools {
+    position: absolute;
+    top: 30%;
+    left: 3%;
+    width: 300px;
+    height: 530px;
+    border: 1px solid rgb(102, 102, 224);
+}
+.picker {
+    position: relative;
+    top: 50px;
+    left: 10%;
+    border: 1px solid rgb(102, 102, 224);
+    width: 30%;
+    height: 10%;
+    background-color: transparent;
+    font-family: Trattatello, fantasy;
+    color: white;
+    font-size: 150%;
+    transition: all 100ms linear;
+    transition: 1ms;
+}
+.clear {
+    position: relative;
+    top: 35px;
+    left: 24%;
+    border: 1px solid rgb(102, 102, 224);
+    width: 30%;
+    height: 11%;
+    background-color: transparent;
+    font-family: Trattatello, fantasy;
+    color: white;
+    font-size: 150%;
+}
+.clear:hover{
+    transform: scale(1.3) rotate(-2.5deg);
+    cursor: pointer;
+}
+.clear:active {
+    border: 5px solid rgb(102, 102, 224);
+}
+.picker:hover {
+    transform: scale(1.3) rotate(-2.5deg);
+    cursor: pointer;
+}
+.picker:active {
+    border: 5px solid rgb(102, 102, 224);
 }
