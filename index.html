@@ -16,6 +16,7 @@
       <input type="color" id="colorpicker" value="#0000ff" class="picker" placeholder="Color" oninput="setColor(this.value)">
       <button class="clear" id="clear">clear</button>
       <button class="rainbow" onclick="rainbow()">Rainbow</button>
+      <button class = "eraser" onclick="erase()">Eraser</button>
     </div>
     <script>
         var container = document.getElementById('myCanvas');
@@ -66,6 +67,15 @@
             var child = children[i];
             child.addEventListener("mouseenter", function(){
               this.style.backgroundColor = randomColor();
+            })
+          }
+        }
+        function erase(){
+          var children = container.children;
+          for(var i=0; i<children.length; i++){
+            var child = children[i];
+            child.addEventListener("mouseenter", function(){
+              this.style.backgroundColor = "white";
             })
           }
         }

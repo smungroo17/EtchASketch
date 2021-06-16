@@ -63,7 +63,7 @@ input[type=range]::-webkit-slider-thumb {
     left: 3%;
     width: 300px;
     height: 530px;
-    border: 1px solid rgb(102, 102, 224);
+    border: 3px solid rgb(102, 102, 224);
 }
 .picker {
     position: relative;
@@ -118,6 +118,7 @@ input[type=range]::-webkit-slider-thumb {
     font-size: 150%;
 }
 .rainbow:hover{
+    transform: scale(1.3) rotate(-2.5deg);
     background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
     animation:slidebg 3s linear infinite;
     cursor: pointer;
@@ -130,4 +131,23 @@ input[type=range]::-webkit-slider-thumb {
       background-position:20vw;
     }
 }
-  
+
+.eraser{
+    position: relative;
+    top: 25%;
+    left: 25%;
+    border: 1px solid rgb(102, 102, 224);
+    width: 50%;
+    height: 15%;
+    background-color: transparent;
+    font-family: Trattatello, fantasy;
+    color: white;
+    font-size: 150%;
+}
+.eraser:hover{
+    transform: scale(1.3) rotate(-2.5deg);
+    cursor: pointer;
+}
+.eraser:active {
+    border: 5px solid rgb(102, 102, 224);
+}
