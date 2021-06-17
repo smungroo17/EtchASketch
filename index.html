@@ -41,12 +41,16 @@
           for(var i = 0; i < x; i++){
             var div = document.createElement("div");
             div.classList.add("grid");
-            div.addEventListener("mouseenter", function(){
+            if(paint == 1){
+              div.addEventListener("mouseenter", function(){
               this.style.backgroundColor = color;
-            });
-            div.addEventListener("click", function(){
+              });
+            }
+            else{
+              div.addEventListener("click", function(){
               this.style.backgroundColor = color;
-            });
+              });
+            }
             container.appendChild(div);
           }
         }
@@ -90,6 +94,27 @@
         }
         function erase(){
           color = "white";
+          var children = container.children;
+          if(paint == 1){
+            for(var i=0; i<children.length; i++){
+              var child = children[i];
+              childClone = child.cloneNode(true);
+              childClone.addEventListener("mouseenter", function(){
+                this.style.backgroundColor = color;
+              });
+              child.parentNode.replaceChild(childClone, child);
+            }
+          }
+          else{
+            for(var i=0; i<children.length; i++){
+              var child = children[i];
+              childClone = child.cloneNode(true);
+              childClone.addEventListener("click", function(){
+                this.style.backgroundColor = color;
+              });
+              child.parentNode.replaceChild(childClone, child);
+            }
+          }
         }
         document.getElementById('draw').addEventListener('click', function(){
           paint = 0;
