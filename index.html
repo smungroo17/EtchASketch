@@ -17,11 +17,18 @@
       <button class="clear" id="clear">clear</button>
       <button class="rainbow" onclick="rainbow()">Rainbow</button>
       <button class = "eraser" onclick="erase()">Eraser</button>
+      <button class="draw" id="draw">Draw</button>
+      <button class="paint" id="paint">Paint</button>
     </div>
+    <p class="try">Try it yourself!</p>
+    <img src="images/charizard.png", alt="image of baby charizard" class="charizard">
     <script>
         var container = document.getElementById('myCanvas');
         var sep = 1;
         var color = "#0000ff";
+        var draw = 0;
+        var paint = 1;
+
         function updateTextInput(val) {
           document.getElementById('textInput').innerHTML="Grid size: " + val + "x" + val; 
         }
@@ -36,10 +43,14 @@
             div.classList.add("grid");
             div.addEventListener("mouseenter", function(){
               this.style.backgroundColor = color;
-            })
+            });
+            div.addEventListener("click", function(){
+              this.style.backgroundColor = color;
+            });
             container.appendChild(div);
           }
         }
+
         document.getElementById('clear').addEventListener("click", function(){
           container.innerHTML = '';
           drawGrid(sep);
@@ -49,9 +60,16 @@
           var children = container.children;
           for(var i=0; i<children.length; i++){
             var child = children[i];
-            child.addEventListener("mouseenter", function(){
+            if(paint){
+              child.addEventListener("mouseenter", function(){
               this.style.backgroundColor = val;
-            })
+              });
+            }
+            else{
+              child.addEventListener("click", function(){
+                this.style.backgroundColor = val;
+              })
+            }
           }
         }
         function randomColor() {
@@ -71,14 +89,34 @@
           }
         }
         function erase(){
+          color = "white";
+        }
+        document.getElementById('draw').addEventListener('click', function(){
+          paint = 0;
+          draw = 1;
           var children = container.children;
           for(var i=0; i<children.length; i++){
             var child = children[i];
-            child.addEventListener("mouseenter", function(){
-              this.style.backgroundColor = "white";
-            })
+            childClone = child.cloneNode(true);
+            childClone.addEventListener("click", function(){
+              this.style.backgroundColor = color;
+            });
+            child.parentNode.replaceChild(childClone, child);
           }
-        }
+        });
+        document.getElementById('paint').addEventListener('click', function(){
+          paint = 1;
+          draw = 0;
+          var children = container.children;
+          for(var i=0; i<children.length; i++){
+            var child = children[i];
+            childClone = child.cloneNode(true);
+            childClone.addEventListener("mouseenter", function(){
+              this.style.backgroundColor = color;
+            });
+            child.parentNode.replaceChild(childClone, child);
+          }
+        });
     </script>
 </body>
 </html>
