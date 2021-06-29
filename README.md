@@ -6,7 +6,7 @@ To use the project:
   - Choose your color from the color palette (Don't worry, you can still change colors after starting your piece of art without loosing your work)
   - Choose whether to paint (hover your mouse over the canvas) or to draw (click on a particular cell you want to color)
   - If you made a mistake don't worry! You can still use the eraser to erase and continue your art!
-  - Whenever you are done with your artwork, you can press on "Clear" and start a new piece canvas!
+  - Whenever you are done with your artwork, you can press on "Clear" and start a new canvas!
   - Bonus: You can have fun with the Rainbow functionality which paints the canvas with amazing colors!
 
 Challenge: Try reproducing the following drawing of Baby Charizard!
